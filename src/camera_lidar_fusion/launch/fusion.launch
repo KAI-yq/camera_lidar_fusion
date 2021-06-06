@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <arg name="first.bag" default="/home/carl/camera_lidar_calibration/src/livox_camera_lidar_calibration/first.bag" />
+   
+  <node pkg="camera_lidar_fusion" name="fusion" type="fusion" output="screen">
+    <param name="camera_topic"     type="str" value="/zed2/zed_node/left/image_rect_color" />
+    <param name="lidar_topic"      type="str" value="/livox/lidar" />
+    <param name="intrinsic_path"        value="$(find camera_lidar_fusion)/data/parameters/intrinsic.txt" />
+    <param name="extrinsic_path"        value="$(find camera_lidar_fusion)/data/parameters/extrinsic.txt" />
+
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" required="false" args="-d $(find camera_lidar_fusion)/launch/colored_cloud.rviz" />
+
+  <node name="playbag" pkg="rosbag" type="play" args="--clock $(arg first.bag)" />
+  
+
+</launch>
+
