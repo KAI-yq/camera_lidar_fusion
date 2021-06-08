@@ -7,5 +7,5 @@
 ### 2.3 modify the lidar_topic and camera_topic in /launch/fusion.launch
 
 ## 3. Usage:
-'source devel/setup.bash'
-'roslaunch camera_lidar_fusion fusion.launch'
+### 3.1 'source devel/setup.bash'
+### 3.2 'roslaunch camera_lidar_fusion fusion.launch'
