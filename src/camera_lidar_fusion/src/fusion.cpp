@@ -164,7 +164,7 @@ void CameraLidarFusion::callback(const sensor_msgs::ImageConstPtr& input_image_m
         cloud->points[i].r = RGB[0];
         cloud->points[i].g = RGB[1];
         cloud->points[i].b = RGB[2];
-
+    }
         sensor_msgs::PointCloud2 output_cloud;
         pcl::toROSMsg(*cloud, output_cloud);
         output_cloud.header = input_cloud_msg->header;
@@ -172,7 +172,6 @@ void CameraLidarFusion::callback(const sensor_msgs::ImageConstPtr& input_image_m
 
         colored_cloud_pub_.publish(output_cloud);
 
-    }
 
 }
 void CameraLidarFusion::getUV(const cv::Mat &matrix_in, const cv::Mat &matrix_out, float x, float y, float z, float* UV){
